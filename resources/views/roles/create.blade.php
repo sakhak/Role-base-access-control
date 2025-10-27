@@ -6,7 +6,6 @@
       <h1 class="text-2xl font-bold text-gray-900">Create New Role</h1>
       <p class="text-gray-600 mt-2">Add a new role to your system</p>
     </div>
-
     <!-- Create Role Form -->
     <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
       <form action="{{ route('role.create') }}" method="POST">

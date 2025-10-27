@@ -11,4 +11,28 @@ class Role extends Model
         'key',
         'description'
     ];
+
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class, 'role_permissions','role_id', 'permission_id');
+    }
+
+    const roles = [
+        [
+            'name' => 'Super Admin',
+            'key'  => 'super_admin',
+        ],
+        [
+            'name' => 'Admin',
+            'key'  => 'admin',
+         ],
+        [
+            'name' => 'Teacher',
+            'key'  => 'teacher',
+        ],
+        [
+            'name' => 'Student',
+            'key'  => 'student',
+        ]
+    ];
 }
