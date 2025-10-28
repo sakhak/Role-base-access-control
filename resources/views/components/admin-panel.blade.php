@@ -14,12 +14,15 @@
                     Dashboard
                 </a>
 
-                <a href="{{ route('user.index') }}"
-                class="flex items-center px-3 py-2 rounded-lg transition-colors
-                        {{ request()->is('users*') ? 'bg-blue-100 text-blue-600 font-semibold' : 'text-gray-700 hover:bg-gray-100' }}">
-                    <span class="w-2 h-2 rounded-full mr-3 {{ request()->is('users*') ? 'bg-blue-500' : 'bg-gray-400' }}"></span>
-                    Users
-                </a>
+                @if(Auth::user()?->roles[0]?->key == 'admin')
+                    <a href="{{ route('user.index') }}"
+                        class="flex items-center px-3 py-2 rounded-lg transition-colors
+                            {{ request()->is('users*') ? 'bg-blue-100 text-blue-600 font-semibold' : 'text-gray-700 hover:bg-gray-100' }}">
+                        <span class="w-2 h-2 rounded-full mr-3 {{ request()->is('users*') ? 'bg-blue-500' : 'bg-gray-400' }}"></span>
+                        Users
+                    </a>
+                @endif
+
 
                 <a href="{{ route('role.index') }}"
                 class="flex items-center px-3 py-2 rounded-lg transition-colors

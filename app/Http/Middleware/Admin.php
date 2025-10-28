@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use App\Http\Concerns\ApiResponse;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -16,10 +15,9 @@ class Admin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if($request->user()->user_level ===5 ) return $next($request);
+        if($request->user()->roles[0]->key =='admin') $next($request);
+        else return redirect()->route('auth.login');
 
-         return response()->json([
-            'message' => 'You do not have permission to access this resource!'
-        ], 403);
+        return $next($request);
     }
 }
