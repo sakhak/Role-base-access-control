@@ -11,6 +11,7 @@ class RoleController extends Controller
 {
     public function index(): View
     {
+        dd("run");
         // $this->autorize($request->user(), 'profile.create');
         $admin = Role::with('permissions')->where('key', 'admin')->first();
         $roles = Role::all();
