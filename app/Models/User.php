@@ -33,6 +33,12 @@ class User extends Authenticatable
     {
         return $this->getKey(); // Typically the user ID
     }
+
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'user_roles',  'user_id', 'role_id');
+    }
     // public function admin(){
     //     return $this->hasOne(Admin::class);
     // }
