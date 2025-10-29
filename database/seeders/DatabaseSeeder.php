@@ -20,5 +20,10 @@ class DatabaseSeeder extends Seeder
         // $this->call(PermissionSeeder::class);
         // $this->call(RoleSeeder::class);
         // app(RolePermission::class)->admin();
+<<<<<<<<< Temporary merge branch 1
+        $this->call(UserRoleSeeder::class);
+=========
+        app(RolePermission::class)->super_admin();
+>>>>>>>>> Temporary merge branch 2
     }
 }
